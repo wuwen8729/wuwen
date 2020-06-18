@@ -1,0 +1,29 @@
+一、首先安装docker(CentOS 7.6.1810)
+	a.安装依赖工具
+		yum install -y yum-utils device-mapper-persistent-data lvm2
+	b.安装软件源
+		yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+	c.安装docker-ce
+		yum clean all && yum makecache fast && yum -y install docker-ce
+	d.启动docker
+		systemctl start docker
+二、使用docker
+	a.导入已打包镜像
+		docker import zq_gateway.tgz zq_gateway
+	b.启动容器
+		docker run -d -it  --name zq_gateway -v /Log:/data/tomcat4/logs  --network=host zq_gateway /auto_service.sh
+	c.如需开机启动
+		docker update --restart=always zq_gateway 
+三、其他相关命令
+	a.查看镜像
+		docker images
+	b.查看启动docker
+		docker ps
+	a.进入docker容器
+		docker exec -it zq_gateway /bin/bash  ##zq_gateway为容器名字
+	b.退出docker容器
+		exit
+	c.修改docker容器内容后提交更改到镜像
+		docker commit -a 'gxs' -m 'ZQ_tomcat4' strange_curie 111         ##-a提交人  -m更改内容    strange_curie修改后的容器名字    111提交后镜像的名字
+	d.提交后如启动方式不变的话可执行下面命令启动新的容器
+		docker run -d -it  --name zq_gateway -v /Log:/data/tomcat4/logs  --network=host zq_gateway /auto_service.sh    ###--name 指定启动容器名字  zq_gateway指定修改后镜像  -v 指定挂载目录  --network 指定使用宿主机网络  auto_service.sh为启动程序脚本
