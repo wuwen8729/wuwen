@@ -23,3 +23,10 @@ print(type(float_num), float_num)
 int_num = int(11.345)
 print(type(int_num), int_num)
 
+# 集合类型
+list_num = set("{1}")
+print(type(list_num), list_num)
+
+# # 字典类型
+# list_dict = dict("{1=2}")
+# print(type(list_dict), list_dict)
