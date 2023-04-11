@@ -14,7 +14,7 @@
 #     print("欢迎小朋友，免费游玩。")
 
 
-age = 11
+age = 18
 year = 1
 level = 1
 if age >= 18:
