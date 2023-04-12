@@ -14,7 +14,7 @@ def list_while_func():
     # 循环条件：下标索引变量 < 列表的元素数量
 
     # 定义一个变量用来标记列表的下标
-    index = 0           # 初始值为0
+    index = 0  # 初始值为0
     while index < len(my_list):
         # 通过index变量取出对应下标的元素
         element = my_list[index]
@@ -35,5 +35,10 @@ def list_for_func():
         print(f"列表的元素有：{element}")
 
 
+def list_show():
+    print(f"你好！！！")
+
+
 # list_while_func()
-list_for_func()
+# list_for_func()
+list_show()
