@@ -32,3 +32,4 @@ num1 = 10
 num2 = 11
 print(f"10 >= 11的结果是：{num1 >= num2}")
 print(f"10 <= 11的结果是：{num1 <= num2}")
+
